@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ -z "$REPO" ]; then
+   echo "ERROR: You must provided the env variable REPO."
+   exit 1
+fi
+
+
 AIRFLOW_VERSION=2.0.2
 DOCKER_COMPOSE_PROJECT_NAME=aws-mwaa-local-runner-$AIRFLOW_VERSION
 
@@ -66,7 +72,7 @@ test-requirements)
      echo "Container amazon/mwaa-local:$AIRFLOW_VERSION not built. Building locally."
      build_image
    fi
-   docker run -v $(pwd)/dags:/usr/local/airflow/dags -it amazon/mwaa-local:$AIRFLOW_VERSION test-requirements
+   docker run -v $REPO/dags:/usr/local/airflow/dags -it amazon/mwaa-local:$AIRFLOW_VERSION test-requirements
    ;;
 build-image)
    build_image

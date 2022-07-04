@@ -130,7 +130,7 @@ cd plugins
 virtual_python_plugin.py
 ```
 
-- (Optional) Add any Python dependencies to `dags/requirements.txt`.
+- (Optional) Add any Python dependencies to `requirements/requirements.txt`.
 
 **Note**: this step assumes you have a DAG that corresponds to the custom plugin. For examples, see [MWAA Code Examples](https://docs.aws.amazon.com/mwaa/latest/userguide/sample-code.html).
 
